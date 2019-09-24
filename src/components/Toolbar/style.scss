@@ -1,0 +1,15 @@
+.Toolbar{
+  & > .group{
+    text-align: center;
+    & > header{
+      background: #eee;
+      padding: 5px 3px;
+      margin-bottom: 5px;
+    }
+    & > main{
+      & > div{
+        padding: 5px;
+      }
+    }
+  }
+}

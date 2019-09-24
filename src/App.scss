@@ -1,0 +1,18 @@
+.App {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  & > aside{
+    width: 10%;
+    border-right: 3px solid #eee;
+  }
+  & > main{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+  }
+}
