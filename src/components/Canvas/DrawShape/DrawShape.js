@@ -1,18 +1,13 @@
 import React        from 'react';
-import { Layer }    from 'react-konva';
 import Square       from '../Shapes/Square';
 import Circle       from '../Shapes/Circle';
 
-const DrawShape = ({shape}) => {
-  return <Layer>{switchShape(shape)}</Layer>;
-}
-
-const switchShape = (shape) => {
+const DrawShape = ({shape, onSelect, isSelected, onChange}) => {
   switch(shape.type){
     case 'square':
-      return <Square shape={shape} />
+      return <Square shape={shape} isSelected={isSelected} onSelect={onSelect} onChange={onChange} />
     case 'circle':
-      return <Circle shape={shape} />
+      return <Circle shape={shape} isSelected={isSelected} onSelect={onSelect} onChange={onChange} />
     default:
       return null;
   }

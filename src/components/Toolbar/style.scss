@@ -8,8 +8,10 @@
     }
     & > main{
       & > div{
-        padding: 5px;
+        padding: 10px 5px;
       }
+      svg{font-size: 2em;}
+      svg:hover{opacity: 0.6;}
     }
   }
 }
