@@ -1,4 +1,7 @@
 .Toolbar{
+  height: 100%;
+  position: relative;
+
   & > .group{
     text-align: center;
     & > header{
@@ -13,5 +16,15 @@
       svg{font-size: 2em;}
       svg:hover{opacity: 0.6;}
     }
+  }
+  & > footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    right: 0px;    
+    font-family: 'Indie Flower', cursive;
   }
 }

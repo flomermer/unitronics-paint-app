@@ -11,7 +11,7 @@ function App() {
         <Toolbar/>
       </aside>
       <main>
-        <Canvas width={900} height={500}/>
+        <Canvas width={700} height={500}/>
       </main>
     </div>
   );

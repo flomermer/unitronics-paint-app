@@ -3,7 +3,8 @@ import './style.scss';
 import {connect} from 'react-redux';
 import {bindActionCreators}           from 'redux';
 import {switchColor}                  from '../../actions/paintColor';
-import {deleteShape,updateShape}      from '../../actions/shapes';
+import {deleteShape, updateShape}     from '../../actions/shapes';
+import {moveForward, moveBackward}    from '../../actions/shapes';
 import ModeButton                     from './ModeButton';
 import ColorPicker                    from './ColorPicker';
 import Icon                           from '../Misc/Icon';
@@ -12,6 +13,7 @@ class Toolbar extends Component{
   render(){
     const {paintColor, currShapeID, shapes }      = this.props;
     const {switchColor, updateShape, deleteShape} = this.props;
+    const {moveForward, moveBackward}             = this.props;
     const currShape = shapes.filter(s => s.id===currShapeID)[0];
     return(
       <div className={`Toolbar ${this.props.className}`}>
@@ -34,16 +36,24 @@ class Toolbar extends Component{
             <main>
               <Icon icon="trash" title={`remove selected ${currShape.type}`} onClick={() => deleteShape(currShape)} />
               <ColorPicker color={currShape.fill} onChange={(color) => updateShape({...currShape, fill: color})} title={`selected ${currShape.type} fill color`}/>
-
+              {shapes.length>1 &&
+                <>
+                  <Icon icon="forward" title={`bring to front`} onClick={() => moveForward(currShape)} />
+                  <Icon icon="backward" title={`send  to back`}  onClick={() => moveBackward(currShape)} />
+                </>
+              }
             </main>
           </div>
         }
+        <footer>
+          Tomer Flom
+        </footer>
       </div>
     );
   }
 }
 
 const mapStateToProps = ({currShapeID, shapes, paintColor}) => ({currShapeID, shapes, paintColor});
-const mapDispatchToProps = (dispatch) => (bindActionCreators({switchColor, deleteShape, updateShape}, dispatch));
+const mapDispatchToProps = (dispatch) => (bindActionCreators({switchColor, deleteShape, updateShape, moveForward, moveBackward}, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
