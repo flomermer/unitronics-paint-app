@@ -10,7 +10,7 @@ const ModeButton = ({mode, icon, switchMode, paintMode, paintColor}) => {
   return (
     <div className={`ModeButton ${isActive && 'active'}`}>
       <Icon faType='far' icon={icon} size='2x' onClick={() => switchMode(mode)}
-            color={isActive && paintColor} 
+            color={isActive ? paintColor : null}
       />
     </div>
   );
